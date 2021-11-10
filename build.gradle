@@ -1,0 +1,38 @@
+plugins {
+    id "com.github.davidmc24.gradle.plugin.avro" version "1.2.1"
+    id 'maven-publish'
+}
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compileOnly "org.apache.avro:avro:1.10.1"
+}
+
+group = "de.melsicon.examples.avro"
+version = "0.1.1"
+
+sourceSets {
+    main {
+        resources {
+            srcDirs "src/main/avro"
+        }
+    }
+}
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = group
+            artifactId = 'sample'
+            version = version
+            from components.java
+
+            pom {
+                name = 'My Library'
+                description = 'A description of my library'
+
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+  "type":"record",
+  "name":"Book",
+  "namespace":"de.melsicon.examples.avro.model",
+  "fields":[
+    {
+      "name":"title",
+      "type":"string"
+    },
+    {
+      "name":"price",
+      "type":"string"
+    },
+    {
+      "name":"author",
+      "type":{
+        "type":"record",
+        "name":"Author",
+        "fields":[
+          {
+            "name":"name",
+            "type":"string"
+          },
+          {
+            "name":"surname",
+            "type":"string"
+          }
+        ]
+      }
+    }
+  ]
+}
